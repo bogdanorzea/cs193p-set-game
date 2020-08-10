@@ -10,7 +10,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        let game = SetGame()
+
+        return VStack {
+            ForEach(game.cards.prefix(10)) { card in
+                CardView(card: card)
+            }
+        }
     }
 }
 
