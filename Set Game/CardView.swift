@@ -34,12 +34,9 @@ struct CardView: View {
 
     func cardShape(for rect: CGRect) -> Path {
         switch self.card.shape {
-            case .diamond:
-                return CardView.diamond(in: rect)
-            case .oval:
-                return CardView.oval(in: rect)
-            case .squiggle:
-                return CardView.squiggle(in: rect)
+            case .diamond: return CardView.diamond(in: rect)
+            case .oval: return CardView.oval(in: rect)
+            case .squiggle: return CardView.squiggle(in: rect)
         }
     }
 
