@@ -12,13 +12,16 @@ struct CardView: View {
     let card: Card
 
     var body: some View {
-        return HStack {
+        HStack {
             ForEach(0..<card.number) { _ in
                 GeometryReader { geometry in
                     self.body(for: geometry.frame(in: .local))
-                }.frame(width: 25, height: 50)
+                }
+                .aspectRatio(0.5, contentMode: .fit)
             }
-        }
+        }.padding()
+            .cardify()
+            .aspectRatio(1.66, contentMode: .fit)
     }
 
     func body(for rect: CGRect) -> some View {
@@ -105,7 +108,7 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        let card = Card(shape: .squiggle, number: 3, color: .red, shading: .solid)
+        let card = Card(shape: .diamond, number: 3, color: .green, shading: .solid)
 
         return CardView(card: card)
     }

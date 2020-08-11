@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		43DAFFCD24DBA52C00EC8392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DAFFCC24DBA52C00EC8392 /* AppDelegate.swift */; };
 		43DAFFCF24DBA52C00EC8392 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DAFFCE24DBA52C00EC8392 /* SceneDelegate.swift */; };
-		43DAFFD124DBA52C00EC8392 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DAFFD024DBA52C00EC8392 /* ContentView.swift */; };
+		43DAFFD124DBA52C00EC8392 /* SetGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DAFFD024DBA52C00EC8392 /* SetGameView.swift */; };
 		43DAFFD324DBA53100EC8392 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43DAFFD224DBA53100EC8392 /* Assets.xcassets */; };
 		43DAFFD624DBA53100EC8392 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43DAFFD524DBA53100EC8392 /* Preview Assets.xcassets */; };
 		43DAFFD924DBA53100EC8392 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43DAFFD724DBA53100EC8392 /* LaunchScreen.storyboard */; };
@@ -18,13 +18,17 @@
 		43DAFFF424E0FF9900EC8392 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DAFFF324E0FF9900EC8392 /* CardView.swift */; };
 		43DE0B5924E10C5500DF0CEF /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 43DE0B5724E10C5500DF0CEF /* .swiftlint.yml */; };
 		43DE0B5A24E10C5500DF0CEF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 43DE0B5824E10C5500DF0CEF /* .gitignore */; };
+		43DE0B5C24E1D91100DF0CEF /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE0B5B24E1D91100DF0CEF /* Cardify.swift */; };
+		43DE0B5E24E1F86500DF0CEF /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE0B5D24E1F86500DF0CEF /* GridLayout.swift */; };
+		43DE0B6024E226D200DF0CEF /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE0B5F24E226D200DF0CEF /* Grid.swift */; };
+		43DE0B6224E238AF00DF0CEF /* SetGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE0B6124E238AF00DF0CEF /* SetGameViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		43DAFFC924DBA52C00EC8392 /* Set Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Set Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43DAFFCC24DBA52C00EC8392 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43DAFFCE24DBA52C00EC8392 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		43DAFFD024DBA52C00EC8392 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		43DAFFD024DBA52C00EC8392 /* SetGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameView.swift; sourceTree = "<group>"; };
 		43DAFFD224DBA53100EC8392 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43DAFFD524DBA53100EC8392 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		43DAFFD824DBA53100EC8392 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,6 +38,10 @@
 		43DAFFF324E0FF9900EC8392 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		43DE0B5724E10C5500DF0CEF /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		43DE0B5824E10C5500DF0CEF /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		43DE0B5B24E1D91100DF0CEF /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
+		43DE0B5D24E1F86500DF0CEF /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
+		43DE0B5F24E226D200DF0CEF /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		43DE0B6124E238AF00DF0CEF /* SetGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,13 +79,17 @@
 				43DAFFCC24DBA52C00EC8392 /* AppDelegate.swift */,
 				43DAFFD224DBA53100EC8392 /* Assets.xcassets */,
 				43DAFFE724E0E00C00EC8392 /* Card.swift */,
+				43DE0B5B24E1D91100DF0CEF /* Cardify.swift */,
 				43DAFFF324E0FF9900EC8392 /* CardView.swift */,
-				43DAFFEF24E0E0CF00EC8392 /* SetGame.swift */,
-				43DAFFD024DBA52C00EC8392 /* ContentView.swift */,
+				43DE0B5F24E226D200DF0CEF /* Grid.swift */,
+				43DE0B5D24E1F86500DF0CEF /* GridLayout.swift */,
 				43DAFFDA24DBA53100EC8392 /* Info.plist */,
 				43DAFFD724DBA53100EC8392 /* LaunchScreen.storyboard */,
 				43DAFFD424DBA53100EC8392 /* Preview Content */,
 				43DAFFCE24DBA52C00EC8392 /* SceneDelegate.swift */,
+				43DAFFEF24E0E0CF00EC8392 /* SetGame.swift */,
+				43DAFFD024DBA52C00EC8392 /* SetGameView.swift */,
+				43DE0B6124E238AF00DF0CEF /* SetGameViewModel.swift */,
 			);
 			path = "Set Game";
 			sourceTree = "<group>";
@@ -185,11 +197,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				43DAFFCD24DBA52C00EC8392 /* AppDelegate.swift in Sources */,
+				43DE0B5C24E1D91100DF0CEF /* Cardify.swift in Sources */,
 				43DAFFE824E0E00C00EC8392 /* Card.swift in Sources */,
 				43DAFFF424E0FF9900EC8392 /* CardView.swift in Sources */,
 				43DAFFCF24DBA52C00EC8392 /* SceneDelegate.swift in Sources */,
-				43DAFFD124DBA52C00EC8392 /* ContentView.swift in Sources */,
+				43DAFFD124DBA52C00EC8392 /* SetGameView.swift in Sources */,
 				43DAFFF024E0E0CF00EC8392 /* SetGame.swift in Sources */,
+				43DE0B5E24E1F86500DF0CEF /* GridLayout.swift in Sources */,
+				43DE0B6024E226D200DF0CEF /* Grid.swift in Sources */,
+				43DE0B6224E238AF00DF0CEF /* SetGameViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

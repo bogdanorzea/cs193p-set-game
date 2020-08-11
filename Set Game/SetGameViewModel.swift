@@ -1,0 +1,27 @@
+//
+//  SetGameViewModel.swift
+//  Set Game
+//
+//  Created by Bogdan Orzea on 8/10/20.
+//  Copyright © 2020 Bogdan Orzea. All rights reserved.
+//
+
+import Foundation
+
+class SetGameViewModel: ObservableObject {
+    @Published var model: SetGame
+
+    init() {
+        self.model = SetGame()
+    }
+
+    // MARK: - Access to the Model
+    var cards: [Card] {
+        return model.cards
+    }
+
+    // MARK: - Intent(s)
+    func resetGame() {
+        model = SetGame()
+    }
+}
