@@ -22,6 +22,10 @@
 		43DE0B5E24E1F86500DF0CEF /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE0B5D24E1F86500DF0CEF /* GridLayout.swift */; };
 		43DE0B6024E226D200DF0CEF /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE0B5F24E226D200DF0CEF /* Grid.swift */; };
 		43DE0B6224E238AF00DF0CEF /* SetGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE0B6124E238AF00DF0CEF /* SetGameViewModel.swift */; };
+		43DE0B6524E3788F00DF0CEF /* Diamond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE0B6424E3788F00DF0CEF /* Diamond.swift */; };
+		43DE0B6724E3793400DF0CEF /* Oval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE0B6624E3793400DF0CEF /* Oval.swift */; };
+		43DE0B6924E3797B00DF0CEF /* Squiggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE0B6824E3797B00DF0CEF /* Squiggle.swift */; };
+		43DE0B6B24E37AD500DF0CEF /* AnyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DE0B6A24E37AD500DF0CEF /* AnyShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		43DE0B5D24E1F86500DF0CEF /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		43DE0B5F24E226D200DF0CEF /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		43DE0B6124E238AF00DF0CEF /* SetGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameViewModel.swift; sourceTree = "<group>"; };
+		43DE0B6424E3788F00DF0CEF /* Diamond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diamond.swift; sourceTree = "<group>"; };
+		43DE0B6624E3793400DF0CEF /* Oval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oval.swift; sourceTree = "<group>"; };
+		43DE0B6824E3797B00DF0CEF /* Squiggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Squiggle.swift; sourceTree = "<group>"; };
+		43DE0B6A24E37AD500DF0CEF /* AnyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +84,7 @@
 		43DAFFCB24DBA52C00EC8392 /* Set Game */ = {
 			isa = PBXGroup;
 			children = (
+				43DE0B6324E3787400DF0CEF /* Shapes */,
 				43DAFFCC24DBA52C00EC8392 /* AppDelegate.swift */,
 				43DAFFD224DBA53100EC8392 /* Assets.xcassets */,
 				43DAFFE724E0E00C00EC8392 /* Card.swift */,
@@ -100,6 +109,17 @@
 				43DAFFD524DBA53100EC8392 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		43DE0B6324E3787400DF0CEF /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				43DE0B6A24E37AD500DF0CEF /* AnyShape.swift */,
+				43DE0B6424E3788F00DF0CEF /* Diamond.swift */,
+				43DE0B6624E3793400DF0CEF /* Oval.swift */,
+				43DE0B6824E3797B00DF0CEF /* Squiggle.swift */,
+			);
+			path = Shapes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,13 +219,17 @@
 				43DAFFCD24DBA52C00EC8392 /* AppDelegate.swift in Sources */,
 				43DE0B5C24E1D91100DF0CEF /* Cardify.swift in Sources */,
 				43DAFFE824E0E00C00EC8392 /* Card.swift in Sources */,
+				43DE0B6724E3793400DF0CEF /* Oval.swift in Sources */,
 				43DAFFF424E0FF9900EC8392 /* CardView.swift in Sources */,
 				43DAFFCF24DBA52C00EC8392 /* SceneDelegate.swift in Sources */,
 				43DAFFD124DBA52C00EC8392 /* SetGameView.swift in Sources */,
+				43DE0B6924E3797B00DF0CEF /* Squiggle.swift in Sources */,
 				43DAFFF024E0E0CF00EC8392 /* SetGame.swift in Sources */,
 				43DE0B5E24E1F86500DF0CEF /* GridLayout.swift in Sources */,
+				43DE0B6B24E37AD500DF0CEF /* AnyShape.swift in Sources */,
 				43DE0B6024E226D200DF0CEF /* Grid.swift in Sources */,
 				43DE0B6224E238AF00DF0CEF /* SetGameViewModel.swift in Sources */,
+				43DE0B6524E3788F00DF0CEF /* Diamond.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

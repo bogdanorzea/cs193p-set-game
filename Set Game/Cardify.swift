@@ -9,25 +9,28 @@
 import SwiftUI
 
 struct Cardify: ViewModifier {
+    let isSelected: Bool
+
     func body(content: Content) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                .fill(backgroundColor).opacity(backgroundOpacity)
+                .fill(isSelected ? selectedBackGroundColor : backgroundColor).opacity(backgroundOpacity)
             RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                .stroke(backgroundColor, lineWidth: lineWidth)
+                .stroke(isSelected ? selectedBackGroundColor : backgroundColor, lineWidth: lineWidth)
             content
-        }
+        }.animation(.easeOut)
     }
 
     // MARK: - Drawing constants
     let cornerRadius = CGFloat(5)
     let lineWidth = CGFloat(2)
     let backgroundColor = Color.gray
+    let selectedBackGroundColor = Color.blue
     let backgroundOpacity = 0.1
 }
 
 extension View {
-    func cardify() -> some View {
-        self.modifier(Cardify())
+    func cardify(isSelected: Bool) -> some View {
+        self.modifier(Cardify(isSelected: isSelected))
     }
 }

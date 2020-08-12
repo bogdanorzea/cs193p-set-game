@@ -10,6 +10,7 @@ import Foundation
 
 class SetGameViewModel: ObservableObject {
     @Published var model: SetGame
+    @Published var numberOfCardsToShow: Int = 12
 
     init() {
         self.model = SetGame()
@@ -23,5 +24,14 @@ class SetGameViewModel: ObservableObject {
     // MARK: - Intent(s)
     func resetGame() {
         model = SetGame()
+        numberOfCardsToShow = 12
+    }
+
+    func choseCard(_ card: Card) {
+        model.choseCard(card)
+    }
+
+    func showMoreCards() {
+        numberOfCardsToShow += 3
     }
 }

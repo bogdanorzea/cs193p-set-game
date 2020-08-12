@@ -7,12 +7,18 @@
 //
 import Foundation
 
-struct Card: Identifiable {
+struct Card: Identifiable, Equatable {
     let id = UUID()
     let shape: CardShape
     let number: Int
     let color: CardColor
     let shading: CardShading
+    var isSelected: Bool = false
+    var isMatched: Bool = false
+
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 enum CardShape: CaseIterable {
