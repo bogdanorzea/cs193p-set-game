@@ -36,12 +36,12 @@ struct SetGame {
     }
 
     mutating func choseCard(_ card: Card) {
+        if selectedIndices.count > 2 {
+            deselectAllCards()
+        }
+
         if let chosenIndex = cards.firstIndex(where: { $0 == card }) {
             selectCardAt(index: chosenIndex)
-
-            if selectedIndices.count > 2 {
-                deselectAllCards()
-            }
         }
     }
 
