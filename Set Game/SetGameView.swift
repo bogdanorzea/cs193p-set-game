@@ -12,12 +12,14 @@ struct SetGameView: View {
     @ObservedObject var viewModel: SetGameViewModel
 
     var body: some View {
-        let cards = Array(viewModel.cards.filter { !$0.isMatched }.prefix(viewModel.numberOfCardsToShow))
+        let cards = Array(viewModel.cards.filter { card in
+            card.isSelected || !card.isMatched
+        }.prefix(viewModel.model.numberOfCardsToShow))
 
         return VStack {
             HStack {
                 DealMoreCardsButton {
-                    self.viewModel.showMoreCards()
+                    self.viewModel.dealMore()
                 }
                 Spacer()
                 NewGameButton {
@@ -27,7 +29,7 @@ struct SetGameView: View {
 
             Grid(cards) { card in
                 CardView(card: card)
-                    .onTapGesture { self.viewModel.choseCard(card) }
+                    .onTapGesture { self.viewModel.chose(card: card) }
                     .padding(5)
             }
         }

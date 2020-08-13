@@ -10,13 +10,18 @@ import SwiftUI
 
 struct Cardify: ViewModifier {
     let isSelected: Bool
+    let isMatched: Bool
 
     func body(content: Content) -> some View {
-        ZStack {
+        let cardColor = isSelected
+            ? isMatched ? matchedBackgroundColor : selectedBackGroundColor
+            : backgroundColor
+
+        return ZStack {
             RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                .fill(isSelected ? selectedBackGroundColor : backgroundColor).opacity(backgroundOpacity)
+                .fill(cardColor).opacity(backgroundOpacity)
             RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                .stroke(isSelected ? selectedBackGroundColor : backgroundColor, lineWidth: lineWidth)
+                .stroke(cardColor, lineWidth: lineWidth)
             content
         }.animation(.easeOut)
     }
@@ -26,11 +31,12 @@ struct Cardify: ViewModifier {
     let lineWidth = CGFloat(2)
     let backgroundColor = Color.gray
     let selectedBackGroundColor = Color.blue
+    let matchedBackgroundColor = Color.green
     let backgroundOpacity = 0.1
 }
 
 extension View {
-    func cardify(isSelected: Bool) -> some View {
-        self.modifier(Cardify(isSelected: isSelected))
+    func cardify(isSelected: Bool, isMatched: Bool) -> some View {
+        self.modifier(Cardify(isSelected: isSelected, isMatched: isMatched))
     }
 }
