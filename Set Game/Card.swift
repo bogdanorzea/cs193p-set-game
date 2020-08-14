@@ -14,7 +14,7 @@ struct Card: Identifiable, Equatable {
     let color: CardColor
     let shading: CardShading
     var isSelected: Bool = false
-    var isMatched: Bool = false
+    var isMatched: Bool?
 
     static func == (lhs: Card, rhs: Card) -> Bool {
         return lhs.id == rhs.id

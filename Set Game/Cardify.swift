@@ -10,12 +10,14 @@ import SwiftUI
 
 struct Cardify: ViewModifier {
     let isSelected: Bool
-    let isMatched: Bool
+    let isMatched: Bool?
 
     func body(content: Content) -> some View {
-        let cardColor = isSelected
-            ? isMatched ? matchedBackgroundColor : selectedBackGroundColor
-            : backgroundColor
+        var cardColor = isSelected ? selectedBackGroundColor : backgroundColor
+
+        if let isMatched = isMatched {
+            cardColor = isMatched ? matchedBackgroundColor : notMatchedBackgroundColor
+        }
 
         return ZStack {
             RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
@@ -32,11 +34,12 @@ struct Cardify: ViewModifier {
     let backgroundColor = Color.gray
     let selectedBackGroundColor = Color.blue
     let matchedBackgroundColor = Color.green
+    let notMatchedBackgroundColor = Color.red
     let backgroundOpacity = 0.1
 }
 
 extension View {
-    func cardify(isSelected: Bool, isMatched: Bool) -> some View {
+    func cardify(isSelected: Bool, isMatched: Bool?) -> some View {
         self.modifier(Cardify(isSelected: isSelected, isMatched: isMatched))
     }
 }

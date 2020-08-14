@@ -13,7 +13,7 @@ struct SetGameView: View {
 
     var body: some View {
         let cards = Array(viewModel.cards.filter { card in
-            card.isSelected || !card.isMatched
+            card.isSelected || card.isMatched == nil
         }.prefix(viewModel.model.numberOfCardsToShow))
 
         return VStack {
