@@ -25,8 +25,8 @@ class SetGameViewModel: ObservableObject {
     }
 
     // MARK: - Intent(s)
-    func resetGame() {
-        model = SetGame()
+    func newGame() {
+        model.newGame()
     }
 
     func chose(card: Card) {

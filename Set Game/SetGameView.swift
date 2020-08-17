@@ -22,7 +22,7 @@ struct SetGameView: View {
                 Spacer()
                 NewGameButton {
                     withAnimation {
-                        self.viewModel.resetGame()
+                        self.viewModel.newGame()
                     }
                 }
             }
@@ -38,6 +38,9 @@ struct SetGameView: View {
                     .transition(.move(edge: Edge.allCases.randomElement()!))
             }
                 .padding()
+        }
+        .onAppear {
+            self.viewModel.newGame()
         }
     }
 }

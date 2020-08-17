@@ -18,6 +18,12 @@ struct SetGame {
     init() {
         selectedIndices = [Int]()
         cards = [Card]()
+    }
+
+    mutating func newGame() {
+        selectedIndices.removeAll()
+        cards.removeAll()
+        numberOfCardsToShow = SetGame.defaultNumberOfCardsToShow
 
         for shape in CardShape.allCases {
             for color in CardColor.allCases {
@@ -100,9 +106,9 @@ struct SetGame {
             return
         }
 
-        cards[selectedIndices[0]].isMatched = true
-        cards[selectedIndices[1]].isMatched = true
-        cards[selectedIndices[2]].isMatched = true
+        for i in selectedIndices {
+            cards[i].isMatched = true
+        }
     }
 
     mutating private func markSelectedCardsAsNotMatched() {
@@ -110,21 +116,16 @@ struct SetGame {
             return
         }
 
-        cards[selectedIndices[0]].isMatched = false
-        cards[selectedIndices[1]].isMatched = false
-        cards[selectedIndices[2]].isMatched = false
+        for i in selectedIndices {
+            cards[i].isMatched = false
+        }
     }
 
     mutating private func deselectAllCards() {
         for i in selectedIndices {
             cards[i].isSelected = false
             cards[i].isMatched = cards[i].isMatched == true ? true : nil
-
-            if let isMatched = cards[i].isMatched, isMatched {
-                cards[i].isMatched = true
-            } else {
-                cards[i].isMatched = nil
-            }
+            cards[i].isHidden = cards[i].isMatched == true ? true : false
         }
 
         selectedIndices.removeAll()
