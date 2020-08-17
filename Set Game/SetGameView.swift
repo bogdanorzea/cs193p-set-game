@@ -12,26 +12,32 @@ struct SetGameView: View {
     @ObservedObject var viewModel: SetGameViewModel
 
     var body: some View {
-        let cards = Array(viewModel.cards.filter { card in
-            card.isSelected || card.isMatched == nil
-        }.prefix(viewModel.model.numberOfCardsToShow))
-
-        return VStack {
+        VStack {
             HStack {
                 DealMoreCardsButton {
-                    self.viewModel.dealMore()
+                    withAnimation {
+                        self.viewModel.dealMore()
+                    }
                 }
                 Spacer()
                 NewGameButton {
-                    self.viewModel.resetGame()
+                    withAnimation {
+                        self.viewModel.resetGame()
+                    }
                 }
             }
 
-            Grid(cards) { card in
+            Grid(viewModel.cardsToShow) { card in
                 CardView(card: card)
-                    .onTapGesture { self.viewModel.chose(card: card) }
                     .padding(5)
+                    .onTapGesture {
+                        withAnimation(.easeInOut) {
+                            self.viewModel.chose(card: card)
+                        }
+                    }
+                    .transition(.move(edge: Edge.allCases.randomElement()!))
             }
+                .padding()
         }
     }
 }

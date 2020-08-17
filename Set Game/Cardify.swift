@@ -21,11 +21,15 @@ struct Cardify: ViewModifier {
 
         return ZStack {
             RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                .fill(cardColor).opacity(backgroundOpacity)
+                .fill(Color.white)
+            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                .fill(cardColor)
+                .opacity(cardOpacity)
             RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                 .stroke(cardColor, lineWidth: lineWidth)
             content
-        }.animation(.easeOut)
+        }
+        .animation(.easeOut)
     }
 
     // MARK: - Drawing constants
@@ -35,7 +39,7 @@ struct Cardify: ViewModifier {
     let selectedBackGroundColor = Color.blue
     let matchedBackgroundColor = Color.green
     let notMatchedBackgroundColor = Color.red
-    let backgroundOpacity = 0.1
+    let cardOpacity = 0.2
 }
 
 extension View {

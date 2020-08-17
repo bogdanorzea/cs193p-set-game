@@ -20,6 +20,10 @@ class SetGameViewModel: ObservableObject {
         return model.cards
     }
 
+    var cardsToShow: [Card] {
+        Array(self.cards.filter { !$0.isHidden }.prefix(self.model.numberOfCardsToShow))
+    }
+
     // MARK: - Intent(s)
     func resetGame() {
         model = SetGame()
