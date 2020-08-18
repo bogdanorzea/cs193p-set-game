@@ -11,9 +11,18 @@ import SwiftUI
 struct Cardify: ViewModifier {
     let isSelected: Bool
     let isMatched: Bool?
+    let isHint: Bool
 
     func body(content: Content) -> some View {
-        var cardColor = isSelected ? selectedBackGroundColor : backgroundColor
+        var cardColor = backgroundColor
+
+        if isHint {
+            cardColor = hintBackgroundColor
+        }
+
+        if isSelected {
+            cardColor = selectedBackGroundColor
+        }
 
         if let isMatched = isMatched {
             cardColor = isMatched ? matchedBackgroundColor : notMatchedBackgroundColor
@@ -39,11 +48,12 @@ struct Cardify: ViewModifier {
     let selectedBackGroundColor = Color.blue
     let matchedBackgroundColor = Color.green
     let notMatchedBackgroundColor = Color.red
+    let hintBackgroundColor = Color.yellow
     let cardOpacity = 0.2
 }
 
 extension View {
-    func cardify(isSelected: Bool, isMatched: Bool?) -> some View {
-        self.modifier(Cardify(isSelected: isSelected, isMatched: isMatched))
+    func cardify(isSelected: Bool, isMatched: Bool?, isHint: Bool) -> some View {
+        self.modifier(Cardify(isSelected: isSelected, isMatched: isMatched, isHint: isHint))
     }
 }

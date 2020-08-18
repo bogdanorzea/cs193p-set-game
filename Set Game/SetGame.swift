@@ -77,7 +77,9 @@ struct SetGame {
             markSelectedCardsAsMatched()
             reduceNumberOfVisibleCards()
         } else {
-            self.numberOfCardsToShow += 3
+            if numberOfCardsToShow <= 81 - 3 {
+                self.numberOfCardsToShow += 3
+            }
         }
         deselectAllCards()
     }
@@ -88,17 +90,21 @@ struct SetGame {
         }
     }
 
-    private var areSelectedCardsASet: Bool {
-        let first = cards[selectedIndices[0]]
-        let second = cards[selectedIndices[1]]
-        let third = cards[selectedIndices[2]]
-
+    private func areCardsASet(_ first: Card, _ second: Card, _ third: Card) -> Bool {
         let shapes: Set<CardShape> = [first.shape, second.shape, third.shape]
         let numbers: Set<Int> = [first.number, second.number, third.number]
         let colors: Set<CardColor> = [first.color, second.color, third.color]
         let shadings: Set<CardShading> = [first.shading, second.shading, third.shading]
 
         return shapes.count != 2 && numbers.count != 2 && colors.count != 2 && shadings.count != 2
+    }
+
+    private var areSelectedCardsASet: Bool {
+        let first = cards[selectedIndices[0]]
+        let second = cards[selectedIndices[1]]
+        let third = cards[selectedIndices[2]]
+
+        return areCardsASet(first, second, third)
     }
 
     mutating private func markSelectedCardsAsMatched() {
@@ -129,5 +135,32 @@ struct SetGame {
         }
 
         selectedIndices.removeAll()
+    }
+
+    mutating func showHint() -> Bool {
+        let visibleCards = Array(self.cards.filter { !$0.isHidden })
+        let numberOfVisibleCards = min(visibleCards.count, numberOfCardsToShow)
+
+        for i in 0..<numberOfVisibleCards {
+            for j in 1..<numberOfVisibleCards {
+                for k in 2..<numberOfVisibleCards {
+                    if i != j, j != k, i != k, areCardsASet(visibleCards[i], visibleCards[j], visibleCards[k]) {
+                        if let index = self.cards.firstIndex(where: { $0 == visibleCards[i] }) {
+                            cards[index].isHint = true
+                        }
+                        if let index = self.cards.firstIndex(where: { $0 == visibleCards[j] }) {
+                            cards[index].isHint = true
+                        }
+                        if let index = self.cards.firstIndex(where: { $0 == visibleCards[k] }) {
+                            cards[index].isHint = true
+                        }
+
+                        return true
+                    }
+                }
+            }
+        }
+
+        return false
     }
 }

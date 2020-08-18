@@ -36,4 +36,8 @@ class SetGameViewModel: ObservableObject {
     func dealMore() {
         model.dealMore()
     }
+
+    func showHint() -> Bool {
+        model.showHint()
+    }
 }

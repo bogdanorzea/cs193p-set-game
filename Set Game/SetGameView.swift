@@ -14,11 +14,7 @@ struct SetGameView: View {
     var body: some View {
         VStack {
             HStack {
-                DealMoreCardsButton {
-                    withAnimation {
-                        self.viewModel.dealMore()
-                    }
-                }
+                ShowHintButton(viewModel: viewModel)
                 Spacer()
                 NewGameButton {
                     withAnimation {
@@ -34,10 +30,16 @@ struct SetGameView: View {
                         withAnimation(.easeInOut) {
                             self.viewModel.chose(card: card)
                         }
-                    }
-                    .transition(.move(edge: Edge.allCases.randomElement()!))
+                }
+                .transition(.move(edge: Edge.allCases.randomElement()!))
             }
-                .padding()
+            .padding()
+
+            DealMoreCardsButton {
+                withAnimation {
+                    self.viewModel.dealMore()
+                }
+            }
         }
         .onAppear {
             self.viewModel.newGame()
@@ -53,6 +55,32 @@ struct DealMoreCardsButton: View {
             Text("Deal 3 more cards")
         })
             .padding()
+    }
+}
+
+struct ShowHintButton: View {
+    @ObservedObject var viewModel: SetGameViewModel
+    @State var isAlertVisible: Bool = false
+
+    var body: some View {
+        Button(action: {
+            withAnimation {
+                self.isAlertVisible = !self.viewModel.showHint()
+            }
+        }, label: {
+            Text("Hint")
+        })
+            .padding()
+            .alert(isPresented: $isAlertVisible) {
+                Alert(
+                    title: Text("No sets available"),
+                    message: Text("Do you want to deal more cards"),
+                    primaryButton: .default(Text("Yes")) {
+                        withAnimation { self.viewModel.dealMore() }
+                    },
+                    secondaryButton: .cancel()
+                )
+        }
     }
 }
 
